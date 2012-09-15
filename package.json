@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git://github.com/InkSpeck/fluidity.git"
   },
   "devDependencies": {
     "connect"         : "1.x",
