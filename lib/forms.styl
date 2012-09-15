@@ -1,0 +1,165 @@
+@import 'colors'
+@import 'css3'
+
+fieldset
+  position relative
+  clear both
+  margin 0
+
+legend
+  width 100%
+  float left
+  margin .75em 0 1.5em 0
+  font-size 1.4 em
+  color lighten(darkgray3, 50%)
+  clear both
+
+label
+  display block
+  float left
+  clear both
+  width 20%
+  padding .25em 1.5em 1em 1em  
+  margin 0
+  font-size .870em
+
+input[type=button] 
+input[type=submit] 
+input[type=reset]   
+.button
+button
+  width auto
+  float right
+  clear left
+  padding 8px
+  margin 0.25em .25em
+  border-radius (5px)
+  color white
+  border none
+  outline none
+  text-align center
+  text-decoration none
+  color black
+  font-weight normal
+  letter-spacing 0.06em
+  text-shadow 0px 1px 0px btngray1
+  gradient(btngray1,btngray2,btngray3)
+  border 1px solid darkgray1
+  shadow 0 1px 1px color
+  a
+    text-decoration none
+    color color
+    &:active
+      color white
+  &:hover
+  &:focus
+    box-shadow inset 0 0 6px 0px darken(darkgray1, 20%), 0 1px 1px color
+  &:active
+    inshadow( 0, 0, 10px, 1px, darken(darkgray1, 50%))
+    color white
+    text-shadow 0px 0px 8px color, 0 0 1px color
+    border 1px solid color
+    gradient(darkgray3,darkgray2,darkgray1)
+  &:disabled
+  &:disabled:active
+    text-align center
+    text-decoration none
+    color black
+    font-weight normal
+    letter-spacing 0.06em
+    text-shadow 0px 1px 0px btngray1
+    gradient(btngray1,btngray2,btngray3)
+    border 1px solid darkgray1
+    inshadow( 0, 0, 6px, 0px, darken(darkgray1, 20%))
+    opacity 0.6
+  &:disabled:active a:active
+     color black
+input,
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=number],
+input[type=password],
+textarea,
+select
+  display inline-block
+  float left
+  border 1px solid lighten(darkgray3,40%)
+  border-radius 3px
+  padding 6px
+  outline none
+  margin 0 0 1em 0
+  -webkit-appearance none
+  -o-appearance none
+  width 60%  
+  inshadow(0,0px,12px,0px,lighten(darkgray3,70%))
+  &:focus
+  &:hover  
+    border 1px solid darken(lightgray1,20%)
+    shadow(0,0,9px,darken(lightgray1,20%))
+
+textarea
+  height 6em
+
+select
+  background-color lighten(lightgray3,5%)
+  inshadow(0,0,9px,1px, lighten(darkgray3,50%))
+  background-image url('./lib/images/select.png')
+  background-repeat no-repeat  
+  background-position right center
+  cursor pointer
+  &:focus
+  &:hover  
+    background-color lighten(lightgray3,10%)
+    inshadow(0,0,9px,1px, lighten(darkgray3,70%))
+    background-image url('./lib/images/select.png')
+    background-repeat no-repeat  
+    background-position right center
+    
+select[multiple]
+  display inline-block
+  gradient(btngray1,btngray2,btngray3)
+  inshadow(0,1px,9px,0px,lighten(darkgray3,70%))
+  &:focus
+    border 1px solid darken(lightgray1,20%)
+    shadow(0,0,9px,darken(lightgray1,20%))
+
+input[type=radio]
+input[type=checkbox]
+   display inline-block
+   width 1em
+   margin 0 0 0 1.5em
+   height 1em
+   border-radius 0.25em
+   padding-top 0.25em
+   border .18em solid white
+   gradient(btngray1,btngray2,lighten(btngray3,20%))
+   box-shadow 0 0 1px darkgray3, 0 0 9px lightgray1, inset 0 0 6px 0px color
+   cursor pointer
+   &:focus
+   &:hover
+    border .18em solid darken(lightgray1,20%)
+    shadow(0,0,9px,darken(lightgray1,20%))
+   &:focus:checked
+    border .18em solid white
+    background-color color
+    box-shadow 0 0 1px darkgray3, 0 0 9px lightgray1, inset 0 0 6px 0px color
+
+input[type=radio]
+  border-radius 2em
+
+input[type=checkbox]:checked
+  background-image url('./lib/images/checkbox.png')
+  background-repeat no-repeat  
+  background-color color
+
+input[type=radio]:checked
+  background-image none
+  background-color color
+
+input[type=file]
+  box-shadow none
+  border none
+  font-size .875em

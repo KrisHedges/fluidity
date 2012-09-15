@@ -1,0 +1,86 @@
+border-radius(n)
+  -webkit-border-radius n
+  -moz-border-radius n
+  -o-border-radius n
+  border-radius n
+
+border-top-left-radius(n)
+  -webkit-border-top-left-radius- n
+  -moz-border-topleft-radius n
+  -o-border-top-left-radius n
+  border-top-left-radius n
+
+border-top-right-radius(n)
+  -webkit-border-top-right-radius- n
+  -moz-border-topright-radius n
+  -o-border-top-right-radius n
+  border-top-right-radius n
+
+border-bottom-left-radius(n)
+  -webkit-border-bottom-left-radius- n
+  -moz-border-bottomleft-radius n
+  -o-border-bottom-left-radius n
+  border-bottom-left-radius n
+
+border-bottom-right-radius(n)
+  -webkit-border-bottom-right-radius- n
+  -moz-border-bottomright-radius n
+  -o-border-bottom-right-radius n
+  border-bottom-right-radius n
+
+// Box Shadow
+
+//An implicit box shadow helper for more than one shadow if necessary
+box-shadow()
+  -moz-box-shadow arguments
+  -webkit-box-shadow arguments
+  -o-box-shadow arguments
+  box-shadow arguments
+
+// A single outset shadow
+shadow(x,y,b,c)
+  -moz-box-shadow x y b c
+  -webkit-box-shadow x y b c
+  -o-box-shadow x y b c
+  box-shadow x y b c
+
+// Inset Shadow
+inshadow(x,y,b,s,c)
+  -webkit-box-shadow inset x y b s c
+  -moz-box-shadow inset x y b s c
+  -o-box-shadow inset x y b s c
+  box-shadow inset x y b s c
+
+// Smooth 3 color linear gradients from the top to bottom
+gradient(beginning, middle, end)
+  background-color end
+  background-image -webkit-gradient(linear, left bottom, left top, color-stop(0.19,end), color-stop(0.64,middle), color-stop(1,beginning))
+  background-image -moz-linear-gradient(center bottom, end 19%, middle 64%, beginning 100%)
+  background-image -o-linear-gradient(top,beginning,end)
+  background-image linear-gradient(center bottom, end 19%, middle 64%, beginning 100%)
+
+// Smooth 3 color linear gradients from the left to right
+hgradient(beginning, middle, end)
+  background-color end
+  background-image -webkit-gradient(linear, left top, right top, color-stop(0.19,end), color-stop(0.64,middle), color-stop(1,beginning))
+  background-image -moz-linear-gradient(left center, end 19%, middle 64%, beginning 100%)
+  background-image -o-linear-gradient(left, beginning, end)
+  background-image linear-gradient(left center, end 19%, middle 64%, beginning 100%)
+
+// Simple Radial Gradients options (pos x, pos y, radial color, end color)
+
+rgradient(x,y,r,e)
+  background-color e
+  background-image -moz-radial-gradient(x y, circle farthest-side, r, e 100%)
+  background-image -webkit-gradient(radial, x y, 0px, x y, minWidth, from(r), to(e))
+  background-image -webkit-radial-gradient(x y, circle, r, e)
+  background-image -o-radial-gradient(x y, circle farthest-side, r, e 100%)
+  background-image radial-gradient(x y, circle farthest-side, r, e 100%)
+
+// Opacity
+opacity(a)
+  opacity a
+  -webkit-opacity a
+  -moz-opacity a
+  -o-opacity a
+  filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(a * 100) + ')')

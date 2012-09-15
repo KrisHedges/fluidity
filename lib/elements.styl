@@ -1,0 +1,100 @@
+.topbar
+  small()
+  width 100%
+  height 60px
+  position fixed
+  top 0
+  left 0
+  border 1px solid color
+  gradient(darkgray3,darkgray2,darkgray1)
+  color lightgray3
+  z-index 10
+  opacity(1.0)
+  shadow 0 0 16px color
+  .topbar-inner
+    grid()
+    overflow visible
+    p
+      margin 1.5em
+  button, .button
+    margin 1.4em 1em
+    font-weight bold
+    float left
+    border 0
+    small()
+  .pills li a
+    border 0
+    &:active
+    &.current
+      border 0
+
+.pills
+  display block
+  width 100%
+  height 50px
+  clear both
+  margin-left 0.5em
+
+.pills li a
+  float left
+  padding 7px 8px 8px 9px
+  margin 1.1em 0.20em
+  border-radius (13px)
+  color white
+  border none
+  outline none
+  text-align center
+  text-decoration none
+  color black
+  font-weight normal
+  letter-spacing 0.06em
+  text-shadow 0px 1px 0px btngray1
+  gradient(btngray1,btngray2,btngray3)
+  border 1px solid darkgray1
+  shadow 0 1px 1px color
+  &:hover
+    inshadow 0 0 6px 0px darken(darkgray1, 20%)
+  &.current    
+  &:active
+    padding 7px 7px 8px 9px
+    margin 1.1em 0.20em
+    inshadow 0 0 10px 1px darken(darkgray1, 40%)
+    color white
+    text-shadow 0px 0px 8px color, 0 0 1px color
+    border 1px solid color
+    gradient(darken(darkgray3,50%),darkgray2,darkgray1)
+
+.tabs
+  display block
+  margin auto 0
+  width 100%
+  height 50px
+  clear both
+    
+
+.tabs li  a
+   float left
+   padding 8px
+   margin 1.1em 0.30em 1.1em 0em
+   border-top-left-radius (8px)
+   border-top-right-radius (8px)
+   color white
+   border none
+   outline none
+   text-align center
+   text-decoration none
+   color black
+   font-weight normal
+   letter-spacing 0.06em
+   text-shadow 0px 1px 0px btngray1
+   gradient(btngray1,btngray2,btngray3)
+   border 1px solid darkgray1
+   inshadow 0 0 6px 0px darken(darkgray1, 20%)
+   &:hover
+   &.current    
+   &:active
+     inshadow 0 0 10px 1px darken(darkgray1, 40%)
+     color white
+     text-shadow 0px 0px 8px color, 0 0 1px color
+     border 1px solid color
+     gradient(darkgray3,darkgray2,darkgray1)
