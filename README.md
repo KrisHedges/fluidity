@@ -2,9 +2,9 @@ Fluidity CSS
 ============
 Fluidity is a lightweight CSS framework for Node/Stylus targeted directy to HTML5.
 It includes a CSS reset, base typography, semantic grid, and transparent mixins for CSS3.
-```
+~~~ sh
 npm install fluidity
-```
+~~~
 For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)
 
 What it is?
