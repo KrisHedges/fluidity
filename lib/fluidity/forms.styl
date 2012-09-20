@@ -1,11 +1,3 @@
-@import 'colors'
-@import 'css3'
-
-fieldset
-  position relative
-  clear both
-  margin 0
-
 legend
   width 100%
   float left
@@ -106,17 +98,11 @@ textarea
 select
   background-color lighten(lightgray3,5%)
   inshadow(0,0,9px,1px, lighten(darkgray3,50%))
-  background-image url('./lib/images/select.png')
-  background-repeat no-repeat  
-  background-position right center
   cursor pointer
   &:focus
   &:hover  
     background-color lighten(lightgray3,10%)
     inshadow(0,0,9px,1px, lighten(darkgray3,70%))
-    background-image url('./lib/images/select.png')
-    background-repeat no-repeat  
-    background-position right center
     
 select[multiple]
   display inline-block
@@ -151,12 +137,9 @@ input[type=radio]
   border-radius 2em
 
 input[type=checkbox]:checked
-  background-image url('./lib/images/checkbox.png')
-  background-repeat no-repeat  
   background-color color
 
 input[type=radio]:checked
-  background-image none
   background-color color
 
 input[type=file]

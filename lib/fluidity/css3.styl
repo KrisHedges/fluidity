@@ -1,63 +1,129 @@
-border-radius(n)
-  -webkit-border-radius n
-  -moz-border-radius n
-  -o-border-radius n
-  border-radius n
+@import "vendorize"
 
-border-top-left-radius(n)
-  -webkit-border-top-left-radius- n
-  -moz-border-topleft-radius n
-  -o-border-top-left-radius n
-  border-top-left-radius n
-
-border-top-right-radius(n)
-  -webkit-border-top-right-radius- n
-  -moz-border-topright-radius n
-  -o-border-top-right-radius n
-  border-top-right-radius n
-
-border-bottom-left-radius(n)
-  -webkit-border-bottom-left-radius- n
-  -moz-border-bottomleft-radius n
-  -o-border-bottom-left-radius n
-  border-bottom-left-radius n
-
-border-bottom-right-radius(n)
-  -webkit-border-bottom-right-radius- n
-  -moz-border-bottomright-radius n
-  -o-border-bottom-right-radius n
-  border-bottom-right-radius n
+// Opacity
+opacity()
+  vendorize 'opacity', arguments
+  opacity arguments
+        
+// Border Radius
+border-radius()
+  vendorize 'border-radius', arguments  
+  border-radius arguments
 
 // Box Shadow
-
-//An implicit box shadow helper for more than one shadow if necessary
 box-shadow()
-  -moz-box-shadow arguments
-  -webkit-box-shadow arguments
-  -o-box-shadow arguments
+  vendorize 'box-shadow', arguments
   box-shadow arguments
 
-// A single outset shadow
-shadow(x,y,b,c)
-  -moz-box-shadow x y b c
-  -webkit-box-shadow x y b c
-  -o-box-shadow x y b c
-  box-shadow x y b c
+// Border Image
+border-image()
+  vendorize 'border-image', arguments
+  border-image arguments
 
-// Inset Shadow
-inshadow(x,y,b,s,c)
-  -webkit-box-shadow inset x y b s c
-  -moz-box-shadow inset x y b s c
-  -o-box-shadow inset x y b s c
-  box-shadow inset x y b s c
+// Background Size
+background-size()
+  vendorize 'background-size', arguments
+  background-size arguments
 
-// Smooth 3 color linear gradients from the top to bottom
+//Background Origin
+background-origin()
+  vendorize 'background-origin', arguments
+  background-origin arguments
+
+// Transforms 2D/3D whichever
+transform()
+  vendorize 'transform', arguments
+  transform arguments
+
+backface-visibilty()
+  vendorize 'backface-visibilty', arguments
+  backface-visibilty arguments
+
+perspective()
+  vendorize 'perspective', arguments
+  perspective arguments  
+
+// Animations @keyframe support is part of Stylus
+
+animation()
+  vendorize 'animation', arguments
+  animation arguments
+
+animation-name()
+  vendorize 'animation-name', arguments
+  animation-name arguments
+
+animation-duration()
+  vendorize 'animation-duration', arguments
+  animation-duration arguments
+
+animation-timing-function()
+  vendorize 'animation-timing-function', arguments
+  animation-timing-function arguments
+
+animation-delay()
+  vendorize 'animation-timing-function', arguments
+  animation-timing-function arguments  
+
+animation-iteration-count()
+  vendorize 'animation-iteration-count', arguments
+  animation-iteration-count arguments
+
+animation-direction()
+  vendorize 'animation-direction', arguments
+  animation-direction arguments
+
+animation-play-state()
+  vendorize 'animation-play-state' arguments
+  animation-play-state arguments
+
+animation-fill-mode()
+  vendorize 'animation-fill-mode', arguments
+  animation-fill-mode arguments
+
+// Transitions
+transition()
+  vendorize 'transition', arguments
+  transition arguments
+
+//Multi-Column Text
+
+columns()
+  vendorize 'columns', arguments
+  columns arguments
+
+column-count()
+  vendorize 'column-count', arguments
+  column-count arguments
+
+column-gap()
+  vendorize 'column-gap', arguments
+  column-gap arguments
+
+column-rule()
+  vendorize 'column-rule', arguments
+  column-rule arguments
+
+// CSS3 UI Properties
+
+appearance()
+  vendorize 'appearance', arguments
+  appearance arguments
+
+box-sizing()
+  vendorizing 'box-sizing', arguments
+  box-sizing arguments
+
+
+// Background Gradients
+// Create a Smooth 3 color linear gradient from top to bottom
+
 gradient(beginning, middle, end)
-  background-color end
   background-image -webkit-gradient(linear, left bottom, left top, color-stop(0.19,end), color-stop(0.64,middle), color-stop(1,beginning))
   background-image -moz-linear-gradient(center bottom, end 19%, middle 64%, beginning 100%)
   background-image -o-linear-gradient(top,beginning,end)
   background-image linear-gradient(center bottom, end 19%, middle 64%, beginning 100%)
+  background-color end
 
 // Smooth 3 color linear gradients from the left to right
 hgradient(beginning, middle, end)
@@ -77,10 +143,4 @@ rgradient(x,y,r,e)
   background-image -o-radial-gradient(x y, circle farthest-side, r, e 100%)
   background-image radial-gradient(x y, circle farthest-side, r, e 100%)
 
-// Opacity
-opacity(a)
-  opacity a
-  -webkit-opacity a
-  -moz-opacity a
-  -o-opacity a
-  filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(a * 100) + ')')
+

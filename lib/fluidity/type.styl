@@ -1,14 +1,19 @@
-body
-  font-size 100%
-  line-height 1.8em
-  font-family "Helvetica Neue", Helvetica, Verdana, Arial
+@import "color"
 
+base-font-size = 1em unless base-font-size is defined
+base-line-height = 1.35em unless base-line-height is defined
+
+margins = 16px * base-font-size 
+
+body
+  font-size base-font-size
+  line-height base-line-height
+  font-family Helvetica, Verdana, Arial
 p
-  margin 1.8em
-  line-height 1.2em
+  margin 1em 1em 0.5em 1.5em
 
 h1, h2, h3, h4, h5, h6
-  margin .625em 24px
+  margin .825em margins
 h1
   font-size 1.8em
 h2
@@ -27,32 +32,101 @@ h6
 b
 strong
   font-weight bold
-
 i
 em
   font-style italic
   letter-spacing 0.065em
 
-address
+address, blockquote
   display block
-  margin 1.5em
-  line-height 1.3em
+  margin margins*2
+  line-height base-line-height
 
+
+blockquote 
+  font-size 1.15em
+  text-align right
+  p
+    text-align center
+  cite
+    font-style italic
+    margin 0
+    &:before
+      content "\2014\00a0"
+    &:after
+      content ""
+  p:before
+    content "\201C\00a0"
+  p:after
+    content "\00a0\201D"
+q
+  quotes none
+  &:before
+    content "\201C\00a0"
+  &:after
+    content "\00a0\201D"
+
+cite, cite a
+  font-style italic
+
+cite
+  &:before
+    content "("    
+  &:after    
+    content ")"
 pre
 code
   display block
-  margin 1em
-  border-radius 5px
+  margin 0.5em margins margins margins
+  border-radius 0
   padding 1em
   background-color lightgray3
+  border 1px solid lightgray2  
   white-space pre-wrap 
   white-space -moz-pre-wrap
   white-space -pre-wrap
   white-space -o-pre-wrap
   word-wrap none
-  font-size .875em
+  font-size .975em
   font-family "Courier New", Courier, monospace, sans-serif
   overflow auto
+  color darkgray3 
+
+ul, ol, dl
+  margin 0 margins*3 base-line-height margins*2
+  font-weight normal
+  font-style normal
+  font-size 100%
+  font-family inherit
+ul ul,
+ol ol,
+dl dl
+  margin 0 (margins*2) 0 margins*1.15
+ul 
+  list-style-type disc
+  ul
+    list-style-type circle
+ol
+  list-style-type decimal 
+  ol
+    list-style-type lower-alpha
+dl
+  margin 0.5em margins
+  font-weight normal
+  font-style normal
+  font-size 100%
+  font-family inherit
+  list-style-type none
+  dt
+    font-weight bold
+  dd
+    margin (margins/1.25) margins
+
+
+
+
+
+
 
 // Mixins for Small, Medium, Large, and XLarge Font-sizes
 
