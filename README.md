@@ -74,6 +74,8 @@ For more information about all the commandline options for Stylus visit the http
 * column-gap
 * column-rule
 * filter
+
 ### Mixin Functions
+
 * linear-gradient()
 * radial-gradient() 
