@@ -22,11 +22,15 @@ npm install fluidity
 ~~~
 
 To begin using Fluidity within your stylus files use the @import rule provided by Stylus
+
 ~~~
 @import "fluidity"
 ~~~
+
 You should now be able to process .styl files into CSS at the commandline with the stylus command. In order for stylus to find Fluidity you can use the "--use" switch.
+
 ~~~ sh
  stylus file.styl --use ../fluidity/lib/fluidity
+~~~
 
-For more information about all the commandline options for Stylus visit the <a href="http://learnboost.github.com/stylus/" target="_blank">Stylus</a> docs or type 'stylus --help'
+For more information about all the commandline options for Stylus http://learnboost.github.com/stylus/ Stylus docs or type 'stylus --help'
