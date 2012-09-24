@@ -30,3 +30,45 @@ You should now be able to process .styl files into CSS at the commandline with t
  stylus file.styl --use ../fluidity/lib/fluidity
 
 For more information about all the commandline options for Stylus visit the <a href="http://learnboost.github.com/stylus/" target="_blank">Stylus</a> docs or type 'stylus --help'
+
+Provided Mixin Functions
+Reset & Typography
+ These are simply included as part of fluidity and serve as a safe base-line.
+Grid
+ * __grid()__
+ * __section()__
+ * __grid-space(n%)
+CSS3
+
+Transparent Mixins
+* appearance
+* opacity
+* border-radius
+* box-shadow
+* box-sizing
+* border-image
+* background-size
+* background-origin
+* background-clip
+* transform
+* backface-visibilty
+* perspective
+* animation
+* animation-name
+* animation-duration
+* animation-timing-function
+* animation-delay
+* animation-iteration-count
+* animation-direction
+* animation-play-state
+* animation-fill-mode
+* transition
+* columns
+* column-count
+* column-gap
+* column-rule
+* filter
+
+Mixin Functions
+* linear-gradient()
+* radial-gradient() 
