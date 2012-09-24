@@ -84,4 +84,3 @@ ___For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)__
 
 * linear-gradient()
 * radial-gradient() 
->>>>>>> 37003aa52ab9694e5e187c21f85c36bd853310c5
