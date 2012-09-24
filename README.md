@@ -9,10 +9,9 @@ Fluidity is an extremely lightweight CSS framework made for web designers who wa
 
 It's built using the awesome Stylesheet language Stylus and all the super powers it has for working with CSS. Fluidity contains a complete CSS reset, some base-line typography, a grid system that can be used semantically or with inline classes to create both fluid-width and fixed-width designs, a collection of transparent mixins that gracefully handle browser pre-fixes for CSS3 properties, and it also has some optional modules for forms and common UI elements.
 
-
 Install ( Quickstart )
 =======
-For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)
+___For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)___
 
 Assumes you already have an up-to-date and working Node.js environment.
 ~~~ sh
@@ -32,5 +31,57 @@ You should now be able to process .styl files into CSS at the commandline with t
 ~~~ sh
  stylus file.styl --use ../fluidity/lib/fluidity
 ~~~
+<<<<<<< HEAD
 
 For more information about all the commandline options for Stylus http://learnboost.github.com/stylus/ Stylus docs or type 'stylus --help'
+=======
+
+For more information about all the commandline options for Stylus visit the http://learnboost.github.com/stylus/ or type 'stylus --help'
+
+# Provided Mixin Functions
+___For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)___
+
+## Reset & Typography
+ These are simply included as part of fluidity and serve as a safe base-line.
+
+## Grid
+### Grid Mixin Functions
+ * __grid()__
+ * __section()__
+ * __grid-space(n%)__
+
+## CSS3
+### Transparent Mixins
+* appearance
+* opacity
+* border-radius
+* box-shadow
+* box-sizing
+* border-image
+* background-size
+* background-origin
+* background-clip
+* transform
+* backface-visibilty
+* perspective
+* animation
+* animation-name
+* animation-duration
+* animation-timing-function
+* animation-delay
+* animation-iteration-count
+* animation-direction
+* animation-play-state
+* animation-fill-mode
+* transition
+* columns
+* column-count
+* column-gap
+* column-rule
+* filter
+
+### Mixin Functions
+
+* linear-gradient()
+* radial-gradient() 
+>>>>>>> 37003aa52ab9694e5e187c21f85c36bd853310c5
