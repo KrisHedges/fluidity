@@ -1,146 +1,97 @@
 @import "vendorize"
+@import "gradients"
 
 // Opacity
 opacity()
-  vendorize 'opacity', arguments
-  opacity arguments
+  vendorize "opacity", arguments
         
 // Border Radius
 border-radius()
-  vendorize 'border-radius', arguments  
-  border-radius arguments
+  vendorize "border-radius", arguments  
 
 // Box Shadow
 box-shadow()
-  vendorize 'box-shadow', arguments
-  box-shadow arguments
+  vendorize "box-shadow", arguments
 
 // Border Image
 border-image()
-  vendorize 'border-image', arguments
-  border-image arguments
+  vendorize "border-image", arguments
 
 // Background Size
 background-size()
-  vendorize 'background-size', arguments
-  background-size arguments
+  vendorize "background-size", arguments
 
 //Background Origin
 background-origin()
-  vendorize 'background-origin', arguments
-  background-origin arguments
+  vendorize "background-origin", arguments
+
+background-clip()
+  vendorize "background-clip", arguments
 
 // Transforms 2D/3D whichever
 transform()
-  vendorize 'transform', arguments
-  transform arguments
+  vendorize "transform", arguments
 
 backface-visibilty()
-  vendorize 'backface-visibilty', arguments
-  backface-visibilty arguments
+  vendorize "backface-visibilty", arguments
 
 perspective()
-  vendorize 'perspective', arguments
-  perspective arguments  
+  vendorize "perspective", arguments
 
 // Animations @keyframe support is part of Stylus
 
 animation()
-  vendorize 'animation', arguments
-  animation arguments
+  vendorize "animation", arguments
 
 animation-name()
-  vendorize 'animation-name', arguments
-  animation-name arguments
+  vendorize "animation-name", arguments
 
 animation-duration()
-  vendorize 'animation-duration', arguments
-  animation-duration arguments
+  vendorize "animation-duration", arguments
 
 animation-timing-function()
-  vendorize 'animation-timing-function', arguments
-  animation-timing-function arguments
+  vendorize "animation-timing-function", arguments
 
 animation-delay()
-  vendorize 'animation-timing-function', arguments
-  animation-timing-function arguments  
+  vendorize "animation-delay", arguments
 
 animation-iteration-count()
-  vendorize 'animation-iteration-count', arguments
-  animation-iteration-count arguments
+  vendorize "animation-iteration-count", arguments
 
 animation-direction()
-  vendorize 'animation-direction', arguments
-  animation-direction arguments
+  vendorize "animation-direction", arguments
 
 animation-play-state()
-  vendorize 'animation-play-state' arguments
-  animation-play-state arguments
+  vendorize "animation-play-state" arguments
 
 animation-fill-mode()
-  vendorize 'animation-fill-mode', arguments
-  animation-fill-mode arguments
+  vendorize "animation-fill-mode", arguments
 
 // Transitions
 transition()
-  vendorize 'transition', arguments
-  transition arguments
+  vendorize "transition", arguments
 
 //Multi-Column Text
 
 columns()
-  vendorize 'columns', arguments
-  columns arguments
+  vendorize "columns", arguments
 
 column-count()
-  vendorize 'column-count', arguments
-  column-count arguments
+  vendorize "column-count", arguments
 
 column-gap()
-  vendorize 'column-gap', arguments
-  column-gap arguments
+  vendorize "column-gap", arguments
 
 column-rule()
-  vendorize 'column-rule', arguments
-  column-rule arguments
+  vendorize "column-rule", arguments
 
 // CSS3 UI Properties
 
 appearance()
-  vendorize 'appearance', arguments
-  appearance arguments
+  vendorize "appearance", arguments
 
 box-sizing()
-  vendorizing 'box-sizing', arguments
-  box-sizing arguments
+  vendorize "box-sizing", arguments
 
-
-// Background Gradients
-// Create a Smooth 3 color linear gradient from top to bottom
-
-gradient(beginning, middle, end)
-  background-image -webkit-gradient(linear, left bottom, left top, color-stop(0.19,end), color-stop(0.64,middle), color-stop(1,beginning))
-  background-image -moz-linear-gradient(center bottom, end 19%, middle 64%, beginning 100%)
-  background-image -o-linear-gradient(top,beginning,end)
-  background-image linear-gradient(center bottom, end 19%, middle 64%, beginning 100%)
-  background-color end
-
-// Smooth 3 color linear gradients from the left to right
-hgradient(beginning, middle, end)
-  background-color end
-  background-image -webkit-gradient(linear, left top, right top, color-stop(0.19,end), color-stop(0.64,middle), color-stop(1,beginning))
-  background-image -moz-linear-gradient(left center, end 19%, middle 64%, beginning 100%)
-  background-image -o-linear-gradient(left, beginning, end)
-  background-image linear-gradient(left center, end 19%, middle 64%, beginning 100%)
-
-// Simple Radial Gradients options (pos x, pos y, radial color, end color)
-
-rgradient(x,y,r,e)
-  background-color e
-  background-image -moz-radial-gradient(x y, circle farthest-side, r, e 100%)
-  background-image -webkit-gradient(radial, x y, 0px, x y, minWidth, from(r), to(e))
-  background-image -webkit-radial-gradient(x y, circle, r, e)
-  background-image -o-radial-gradient(x y, circle farthest-side, r, e 100%)
-  background-image radial-gradient(x y, circle farthest-side, r, e 100%)
-
-
+filter()
+  vendorize "filter", arguments

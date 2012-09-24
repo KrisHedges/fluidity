@@ -1,5 +1,3 @@
-@import "vendorize"
-
 grid-width = 100% unless grid-width is defined
 grid-min-width = 960px unless grid-min-width is defined
 
@@ -17,8 +15,7 @@ space()
   height 100%
   margin 0
   padding 0
-  vendorize "box-sizing", border-box  
-  box-sizing border-box  
+  box-sizing border-box
 
 grid-space(width)
   space()
@@ -53,5 +50,3 @@ section
   margin 0 
   padding 0
   clear both
-  vendorize "box-sizing", border-box  
-  box-sizing border-box  

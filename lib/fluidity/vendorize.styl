@@ -1,5 +1,6 @@
 vendorize(prop, args)
-  if vendors is defined
-    for browser in vendors
+  for browser in vendors
+    if browser == official
+      {prop} args
+    else
       -{browser}-{prop} args
-

@@ -1,0 +1,241 @@
+// Replace the given str with val in the expr.
+replace(expr, str, val)
+  expr = clone(expr)
+  for e, i in expr
+    if length(e) > 1
+      expr[i] = replace(e, str, val)
+    else
+      if str == e
+        expr[i] = val
+  expr
+
+// Normalize gradient points.
+grad-point(pos)
+  if length(pos) == 1
+    return left pos if pos in (top bottom)
+    return pos top if pos in (left right)
+  else if pos[0] in (top bottom)
+    pos[1] pos[0]
+  else
+    pos
+
+// Implicit color stop position.
+pos-in-stops(i, stops)
+  len = length(stops)
+  if len - 1 == i
+    100%
+  else if i
+    unit(i / len * 100, '%')
+  else
+    0%
+
+//  Normalize color stops:
+//    - (color pos) -> (pos color)
+//    - (color) -> (implied-pos color)
+normalize-stops(stops)
+  stops = clone(stops)
+  for stop, i in stops
+    if length(stop) == 1
+      color = stop[0]
+      stop[0] = pos-in-stops(i, stops)
+      stop[1] = color
+    else if typeof(stop[1]) == 'unit'
+      pos = stop[1]
+      stop[1] = stop[0]
+      stop[0] = pos
+  stops
+
+// Join color stops with the given translation function.
+join-stops(stops, translate)
+  str = ''
+  len = length(stops)
+  for stop, i in stops
+    str += ', ' if i
+    pos = stop[0]
+    color = stop[1]
+    str += translate(color, pos)
+  unquote(str)
+
+// Legacy Webkit color stop.
+webkit-stop(color, pos)
+  'color-stop(%d, %s)' % (pos / 100 color)
+
+// Standard color stop.
+std-stop(color, pos)
+  '%s %s' % (color pos) 
+
+/*
+*
+* Linear Gradients
+*
+*/
+linear-gradient(direction, stops...)
+  prop = current-property[0]
+  val = current-property[1] 
+  stops = normalize-stops(stops)
+    
+  dirtostr = '' + direction
+  hastop = match('(top)', dirtostr)
+  hasleft = match('(left)', dirtostr)
+  hasbottom = match('(bottom)', dirtostr)
+  hasright = match('(right)', dirtostr)
+
+  unless direction is a 'unit'    
+    // Linear - Sides
+    direction = 'top' if hastop and !hasleft and !hasright  
+    direction = 'bottom' if hasbottom and !hasleft and !hasright  
+    direction = 'left' if hasleft and !hastop and !hasbottom  
+    direction = 'right' if hasright and !hastop and !hasbottom  
+
+    // Linear - Corners  
+    if hastop && hasleft
+      direction = 'top' 'left'
+    if hastop && hasright
+      direction = 'top' 'right'
+    if hasbottom && hasleft
+      direction = 'bottom' 'left'
+    if hasbottom && hasright
+      direction = 'bottom' 'right'
+
+  // Legacy webkit
+  legacydir = false
+  if direction is a 'unit'
+    if direction < 0
+      negative = true 
+    legacydir = abs(direction)
+    legacydir = 'top' if legacydir < 89 and legacydir > -1
+    legacydir = 'right' if legacydir < 179 and legacydir > 89
+    legacydir = 'bottom' if legacydir < 269 and legacydir > 179
+    legacydir = 'left' if legacydir < 359 and legacydir > 269
+    if negative
+      legacydir = opposite-position(legacydir)
+  else
+    legacydir = direction  
+  unless vendors == official    
+    end = grad-point(opposite-position(legacydir))
+    webkit-legacy = '-webkit-gradient(linear, %s, %s, %s)' % (grad-point(start) end join-stops(stops, webkit-stop))
+    add-property(prop, replace(val, '__CALL__', webkit-legacy))
+
+  // Vendor Prefixes Old Syntax
+  stops = join-stops(stops, std-stop)
+  if direction is a 'unit'
+    newdirection = direction
+  else    
+    newdirection = opposite-position(direction) 
+  for prefix in vendors
+    unless prefix == official
+      gradient = "-%s-linear-gradient(%s, %s)" % (prefix newdirection stops)   
+      add-property(prop, replace(val, '__CALL__', gradient))
+
+  // Vendor Prefixes New Syntax
+  if direction is a 'unit'
+    dir = direction
+  else    
+    dir = s('to ' + direction)
+  for prefix in vendors
+    unless prefix == official
+      gradient = "-%s-linear-gradient(%s, %s)" % (prefix dir stops)   
+      add-property(prop, replace(val, '__CALL__', gradient))
+
+  // New Official Syntax
+  "linear-gradient(%s, %s)" % (dir stops)
+
+/*
+*
+* Radial Gradients
+*
+*/
+radial-gradient(description, stops...)
+  prop = current-property[0]
+  val = current-property[1] 
+  stops = normalize-stops(stops)
+  descstr = '' + description
+  size = farthest-corner
+  oldsyntaxsize = farthest-corner
+  shape = ellipse
+  oldshape = ellipse
+  position = center
+
+  // Shape  
+  hascircle = match('(circle)', descstr)
+  if hascircle
+    shape = s('circle')
+    oldshape = s('circle')
+
+  //Unit Sizes and Positions
+  units = ()
+  push(units, item) if item is a 'unit' for item in description
+
+  if length(units) == 1
+    size = '' + units[0]
+    oldsyntaxsize = size + ' ' + size
+
+  if length(units) == 2
+    positionx = '' + units[0]
+    positiony = '' + units[1]
+    position = positionx + ' ' + positiony  
+
+  if length(units) == 3
+    size = '' + units[0]
+    oldsyntaxsize = size + ' ' + size
+    positionx = '' + units[1]
+    positiony = '' + units[2]
+    position = positionx + ' ' + positiony  
+
+  // Keyword Positions
+  isposition(item)
+    if match(item, top)
+      return true
+    if match(item, right)
+      return true
+    if match(item, bottom)
+      return true
+    if match(item, left)
+      return true
+    if match(item, center)
+      return true      
+    else
+      return false
+
+  positions = ()  
+  for item in description
+    itm = '' + item
+    push(positions, item) if isposition(itm) 
+  if length(positions) > 0    
+    position = '' + positions       
+
+  // Keyword Sizes
+  iskeysize(item)  
+    if match(item, farthest-side)
+      return true
+    if match(item, farthest-corner)
+      return true
+    if match(item, closest-corner)
+      return true
+    if match(item, closest-side)
+      return true
+    else   
+      return false
+
+  for item in description
+    itm = '' + item
+    if iskeysize(itm) 
+      size = itm
+      oldsyntaxsize = itm  
+
+  // Vendor Prefixes Old (Current) Syntax
+  stops = join-stops(stops, std-stop)
+  for prefix in vendors
+    unless prefix == official
+      gradient = "-%s-radial-gradient(%s, %s %s , %s)" % (prefix s(position) s(oldshape) s(oldsyntaxsize) stops)   
+      add-property(prop, replace(val, '__CALL__', gradient))
+
+  // Latest Official Syntax      
+  "radial-gradient(%s %s at %s, %s %s)" % (shape s(size) s(position) stops)
+
+
+
+
+
+
+
