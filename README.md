@@ -11,7 +11,7 @@ It's built using the awesome Stylesheet language Stylus and all the super powers
 
 Install ( Quickstart )
 =======
-For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)
+___For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)___
 
 Assumes you already have an up-to-date and working Node.js environment.
 ~~~ sh
@@ -32,9 +32,10 @@ You should now be able to process .styl files into CSS at the commandline with t
  stylus file.styl --use ../fluidity/lib/fluidity
 ~~~
 
-For more information about all the commandline options for Stylus visit the http://learnboost.github.com/stylus/ target="_blank">Stylus</a> docs or type 'stylus --help'
+For more information about all the commandline options for Stylus visit the http://learnboost.github.com/stylus/ or type 'stylus --help'
 
 # Provided Mixin Functions
+___For Complete Documentation visit [FluidityCSS.com](http://fluiditycss.com/)___
 
 ## Reset & Typography
  These are simply included as part of fluidity and serve as a safe base-line.
