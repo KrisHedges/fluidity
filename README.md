@@ -31,10 +31,6 @@ You should now be able to process .styl files into CSS at the commandline with t
 ~~~ sh
  stylus file.styl --use ../fluidity/lib/fluidity
 ~~~
-<<<<<<< HEAD
-
-For more information about all the commandline options for Stylus http://learnboost.github.com/stylus/ Stylus docs or type 'stylus --help'
-=======
 
 For more information about all the commandline options for Stylus visit the http://learnboost.github.com/stylus/ or type 'stylus --help'
 
