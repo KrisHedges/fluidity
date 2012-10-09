@@ -3,14 +3,17 @@
 base-font-size = 1em unless base-font-size is defined
 base-line-height = 1.38em unless base-line-height is defined
 
-margins = 16px * base-font-size 
+if unit(base-font-size) is 'px'
+  margins = base-font-size * 1.5
+if unit(base-font-size) is 'em'
+  margins = (16px * base-font-size) * 1.5
 
 body
   font-size base-font-size
   line-height base-line-height
   font-family Helvetica, Verdana, Arial
 p
-  margin 1em 1em 0.5em 1.5em
+  margin margins margins+4
 
 h1, h2, h3, h4, h5, h6
   margin .825em margins
@@ -25,11 +28,7 @@ h4
 h5 
   font-size 1.1em
 h6
-  font-size .8em
-  font-weight 500
-  text-transform uppercase
-
-
+  font-size 1em
 
 b
 strong
@@ -49,16 +48,18 @@ address:first-line
 
 blockquote 
   font-size 1.15em
-  text-align right
-  p
-    text-align center
+  text-align center
+  margin margins  
   cite
     font-style italic
+    text-align right  
     margin 0
     &:before
       content "\2014\00a0"
     &:after
       content ""
+  p
+    margin 0 (margins/1.2)  
   p:before
     content "\201C\00a0"
   p:after
@@ -97,15 +98,16 @@ code
   color darkgray3 
 
 ul, ol, dl
-  margin 0 margins*3 base-line-height margins*2
+  margin 0 margins*2
+  padding 0  
   font-weight normal
   font-style normal
   font-size 100%
   font-family inherit
-ul ul,
-ol ol,
+ul ul
+ol ol
 dl dl
-  margin 0 (margins*2) 0 margins*1.15
+    margin 0 margins
 ul 
   list-style-type disc
   ul
@@ -115,16 +117,16 @@ ol
   ol
     list-style-type lower-alpha
 dl
-  margin 0.5em margins
   font-weight normal
   font-style normal
   font-size 100%
   font-family inherit
   list-style-type none
+  margin 0 margins  
   dt
     font-weight bold
   dd
-    margin (margins/1.25) margins
+    margin (margins / 1.2) margins
 
 
 
