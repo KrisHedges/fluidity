@@ -18,6 +18,7 @@ Assumes you already have an up-to-date and working Node.js environment.
 Make sure you have stylus installed.
 ~~~ sh
 npm install stylus -g
+~~~
 
 Install Fluidity in your Project
 ~~~ sh
