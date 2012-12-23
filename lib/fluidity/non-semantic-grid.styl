@@ -1,0 +1,16 @@
+@import "semantic-grid"
+
+.grid
+  grid()
+
+for width in 1..100
+  .grid-space-{width}
+    grid-space(1% * width)
+
+.center-space
+  center-space()
+
+.header
+.footer
+.section
+  section()
