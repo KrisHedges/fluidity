@@ -1,99 +1,100 @@
 .topbar
   small()
-  width 100%
-  height 60px
-  position fixed
-  top 0
-  left 0
-  border 1px solid darken(lighter-color1, 20%)
-  background-image linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
-  color lighter-color3
-  z-index 15 !important
+  width: 100%
+  height: 60px
+  position: fixed
+  top: 0
+  left: 0
+  border: 1px solid darken(lighter-color1, 20%)
+  background-image: linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
+  color: lighter-color3
+  z-index: 15 !important
   opacity(1.0)
-  box-shadow 0 0 16px darken(lighter-color1, 60%)
+  box-shadow: 0 0 16px darken(lighter-color1, 60%)
   .topbar-inner
     grid(100%,grid-min-width)
-    overflow visible
+    overflow: visible
     p
-      margin 1.5em
-  button, .button
-    margin 1.4em 1em
-    font-weight bold
-    float left
-    border 0
+      margin: 1.5em
+  button
+  .button
+    margin: 1.4em 1em
+    font-weight: bold
+    float: left
+    border: 0
     small()
 
 .pills
-  display block
-  width 100%
-  height 50px
-  clear both
-  margin 0 0 0 0.5em
-  list-style-type none
+  display: block
+  width: 100%
+  height: 50px
+  clear: both
+  margin: 0 0 0 0.5em
+  list-style-type: none
   li
-    margin 0
-    padding 0
+    margin: 0
+    padding: 0
     a
-      float left
-      padding 7px 8px 7px 9px
-      margin 0.85em 0.20em
-      border-radius 4px
-      outline none
-      text-align center
-      text-decoration none
-      text-transform capitalize
-      font-weight bold
-      color darker-color1
-      letter-spacing 0.05em
-      text-shadow 0px 1px 1px lighter-color3, 0px -1px 0px lighter-color1
-      background-image linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
-      border 1px solid darken(lighter-color1, 20%)
-      box-shadow 0 1px 1px darker-color2
+      float: left
+      padding: 7px 8px 7px 9px
+      margin: 0.85em 0.20em
+      border-radius: 4px
+      outline: none
+      text-align: center
+      text-decoration: none
+      text-transform: capitalize
+      font-weight: bold
+      color: darker-color1
+      letter-spacing: 0.05em
+      text-shadow: 0px 1px 1px lighter-color3, 0px -1px 0px lighter-color1
+      background-image: linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
+      border: 1px solid darken(lighter-color1, 20%)
+      box-shadow: 0 1px 1px darker-color2
       &:hover
-        background-image linear-gradient(to bottom, lighten(lighter-color1,10%), darken(lighter-color2,10%), lighten(lighter-color2,5%))
-        box-shadow inset 0 1px 10px 0px lighten(darker-color3,30%), 0 0 1px lighter-color1
-        text-shadow 0px 1px 1px lighten(lighter-color3,15%), 0px -1px 0px lighter-color1
-        border 1px solid darken(lighter-color1, 40%)
-        color darken(darker-color2, 20%)
+        background-image: linear-gradient(to bottom, lighten(lighter-color1,10%), darken(lighter-color2,10%), lighten(lighter-color2,5%))
+        box-shadow: inset 0 1px 10px 0px lighten(darker-color3,30%), 0 0 1px lighter-color1
+        text-shadow: 0px 1px 1px lighten(lighter-color3,15%), 0px -1px 0px lighter-color1
+        border: 1px solid darken(lighter-color1, 40%)
+        color: darken(darker-color2, 20%)
       &:active
       .current
-        background-image linear-gradient(to bottom, darker-color3, darker-color2, darker-color1)
-        background-color darker-color1
-        box-shadow inset 0 0 10px 1px darken(darker-color1, 40%)
-        color white
-        text-shadow 0px 0px 8px base-color, 0 0 1px base-color
+        background-image: linear-gradient(to bottom, darker-color3, darker-color2, darker-color1)
+        background-color: darker-color1
+        box-shadow: inset 0 0 10px 1px darken(darker-color1, 40%)
+        color: white
+        text-shadow: 0px 0px 8px base-color, 0 0 1px base-color
 
 .tabs
-  display block
-  margin auto 0
-  width 100%
-  height 50px
-  clear both
-  list-style-type none
+  display: block
+  margin: auto 0
+  width: 100%
+  height: 50px
+  clear: both
+  list-style-type: none
   li
-    margin 0
+    margin: 0
     a
-      float left
-      padding 8px
-      margin 1.1em 0.30em 1.1em 0em
-      border-top-left-radius (8px)
-      border-top-right-radius (8px)
-      border none
-      outline none
-      text-align center
-      text-decoration none
-      color black
-      font-weight normal
-      letter-spacing 0.06em
-      text-shadow 0px 1px 0px lighter-color3
-      background-image linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
-      border 1px solid darker-color1
-      box-shadow inset 0 0 6px 0px darken(darker-color1, 20%)
+      float: left
+      padding: 8px
+      margin: 1.1em 0.30em 1.1em 0em
+      border-top-left-radius: (8px)
+      border-top-right-radius: (8px)
+      border: none
+      outline: none
+      text-align: center
+      text-decoration: none
+      color: black
+      font-weight: normal
+      letter-spacing: 0.06em
+      text-shadow: 0px 1px 0px lighter-color3
+      background-image: linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
+      border: 1px solid darker-color1
+      box-shadow: inset 0 0 6px 0px darken(darker-color1, 20%)
       &:hover
       &.current
       &:active
-        box-shadow inset 0 0 10px 1px darken(darker-color1, 40%)
-        color white
-        text-shadow 0px 0px 8px base-color, 0 0 1px base-color
-        border 1px solid base-color
-        background-image linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
+        box-shadow: inset 0 0 10px 1px darken(darker-color1, 40%)
+        color: white
+        text-shadow: 0px 0px 8px base-color, 0 0 1px base-color
+        border: 1px solid base-color
+        background-image: linear-gradient(to bottom, lighter-color3, lighter-color2, lighter-color1)
