@@ -9,11 +9,11 @@ if unit(base-font-size) is 'em'
   margins = (16px * base-font-size) * 1.5
 
 body
-  font-size: base-font-size
-  line-height: base-line-height
-  font-family: Helvetica, Verdana, Arial
+  font-size base-font-size
+  line-height base-line-height
+  font-family Helvetica, Verdana, Arial
 p
-  margin: margins margins+4
+  margin margins margins+4
 
 h1
 h2
@@ -21,131 +21,131 @@ h3
 h4
 h5
 h6
-  margin: .825em margins
-  line-height: base-line-height
+  margin .825em margins
+  line-height base-line-height
 h1
-  font-size: 1.8em
+  font-size 1.8em
 h2
-  font-size: 1.6em
+  font-size 1.6em
 h3
-  font-size: 1.4em
+  font-size 1.4em
 h4
-  font-size: 1.2em
+  font-size 1.2em
 h5
-  font-size: 1.1em
+  font-size 1.1em
 h6
-  font-size: 1em
+  font-size 1em
 
 b
 strong
-  font-weight: bold
+  font-weight bold
 i
 em
-  font-style: italic
-  letter-spacing: 0.065em
+  font-style italic
+  letter-spacing 0.065em
 
 address
 blockquote
-  display: block
-  margin: margins*2
-  line-height: base-line-height
+  display block
+  margin margins*2
+  line-height base-line-height
 address:first-line
-  font-weight: bold
+  font-weight bold
 blockquote
-  font-size: 1.15em
-  text-align: center
-  margin: margins
+  font-size 1.15em
+  text-align center
+  margin margins
   cite
-    font-style: italic
-    text-align: right
-    margin: 0
+    font-style italic
+    text-align right
+    margin 0
     &:before
-      content: "\2014\00a0"
+      content "\2014\00a0"
     &:after
-      content: ""
+      content ""
   p
-    margin: 0 (margins/1.2)
+    margin 0 (margins/1.2)
   p:before
-    content: "\201C\00a0"
+    content "\201C\00a0"
   p:after
-    content: "\00a0\201D"
+    content "\00a0\201D"
 q
-  quotes: none
+  quotes none
   &:before
-    content: "\201C\00a0"
+    content "\201C\00a0"
   &:after
-    content: "\00a0\201D"
+    content "\00a0\201D"
 
 cite
 cite a
-  font-style: italic
+  font-style italic
 cite
   &:before
-    content: "("
+    content "("
   &:after
-    content: ")"
+    content ")"
 
 pre
 code
-  display: block
-  margin: 0.5em margins margins margins
-  border-radius: 0
-  padding: 1em
-  background-color: lighter-color3
-  border: 1px solid lighter-color2
-  white-space: pre-wrap
-  white-space: -moz-pre-wrap
-  white-space: -pre-wrap
-  white-space: -o-pre-wrap
-  word-wrap: none
-  font-size: .975em
-  font-family: "Courier New", Courier, monospace, sans-serif
-  overflow: auto
-  color: darker-color2
+  display block
+  margin 0.5em margins margins margins
+  border-radius 0
+  padding 1em
+  background-color lighter-color3
+  border 1px solid lighter-color2
+  white-space pre-wrap
+  white-space -moz-pre-wrap
+  white-space -pre-wrap
+  white-space -o-pre-wrap
+  word-wrap none
+  font-size .975em
+  font-family "Courier New", Courier, monospace, sans-serif
+  overflow auto
+  color darker-color2
 
 ul
 ol
 dl
-  margin: 0 margins*2
-  padding: 0
-  font-weight: normal
-  font-style: normal
-  font-size: 100%
-  font-family: inherit
+  margin 0 margins*2
+  padding 0
+  font-weight normal
+  font-style normal
+  font-size 100%
+  font-family inherit
 ul ul
 ol ol
 dl dl
-  margin: 0 margins
+  margin 0 margins
 ul
-  list-style-type: disc
+  list-style-type disc
   ul
-    list-style-type: circle
+    list-style-type circle
 ol
-  list-style-type: decimal
+  list-style-type decimal
   ol
-    list-style-type: lower-alpha
+    list-style-type lower-alpha
 dl
-  font-weight: normal
-  font-style: normal
-  font-size: 100%
-  font-family: inherit
-  list-style-type: none
-  margin: 0 margins
+  font-weight normal
+  font-style normal
+  font-size 100%
+  font-family inherit
+  list-style-type none
+  margin 0 margins
   dt
-    font-weight: bold
+    font-weight bold
   dd
-    margin: (margins / 1.2) margins
+    margin (margins / 1.2) margins
 
 // Mixins for Small, Medium, Large, and XLarge Font-sizes
 
 small()
-  font-size: 0.8em
+  font-size 0.8em
 
 medium()
-  font-size: 1em
+  font-size 1em
 
 large()
-  font-size: 1.2em
+  font-size 1.2em
 
 xlarge()
-  font-size: 1.4em
+  font-size 1.4em
