@@ -1,5 +1,6 @@
 grid-width = 100% unless grid-width is defined
 grid-min-width = 960px unless grid-min-width is defined
+transition-speed = 300ms unless transition-speed is defined
 
 grid(width = grid-width, min-width = grid-min-width)
   position relative
@@ -8,6 +9,7 @@ grid(width = grid-width, min-width = grid-min-width)
   margin 0 auto
   overflow hidden
   transform translate3d(0,0,0)
+  transition left transition-speed cubic-bezier(0.000, 0.000, 0.000, 0.995)
 
 section()
   display block
