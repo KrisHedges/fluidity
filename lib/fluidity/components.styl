@@ -1,0 +1,421 @@
+body
+html
+  width 100%
+  height 100%
+  margin 0
+  padding 0
+  overflow-x hidden
+  overflow-y hidden
+
+html.flui-preload body *
+  transition all 0s linear !important
+
+//
+// Universal Components
+// -----------------------
+
+slider(
+  fl-width=40px,
+  fl-height=30px,
+  track-color=darker-color1,
+  thumb-background= lighter-color3,
+  thumb-border= 1px solid lighter-color2,
+  output-background=darker-color2,
+  output-color=lighter-color3)
+  width 100%
+  appearance none !important
+  background-color track-color
+  height ((fl-height / 2) / 1.2)
+  outline none !important
+  border-radius 3px
+  padding 0
+  margin (fl-height+2) 0 0 0
+  &::-webkit-slider-thumb
+    appearance none !important
+    outline none !important
+    background thumb-background
+    border thumb-border
+    margin 0
+    padding 0
+    width fl-width
+    height fl-height
+    border-radius 3px
+  & + output
+    sliderout(fl-width,fl-height, output-background, output-color)
+  & + input[type="range"]
+    margin (fl-height * 2) 0 0 0!important
+
+
+sliderout(fl-width, fl-height, output-background, output-color)
+  pointer = (fl-height/3)
+  position relative
+  left 0
+  display inline-block
+  top (((fl-height * 2) + (pointer/2)) *-1)
+  margin 0
+  padding 0
+  font-size (fl-height * 0.45)
+  width fl-width
+  height fl-height
+  background-color output-background
+  color output-color
+  border-radius 3px
+  box-sizing border-box
+  text-align center
+  transition left 0s linear
+  transition-delay 0s
+  line-height fl-height
+  vertical-align middle
+  transform translate3d(0,0,0)
+  &:after
+    content ""
+    display block
+    position absolute
+    top fl-height
+    left 50%
+    margin-left (pointer/2) *-1
+    padding 0
+    color black
+    z-index 1
+    border-top pointer solid darker-color2
+    border-left (pointer/2) solid transparent
+    border-right (pointer/2) solid transparent
+
+backbutton(visibility = true,bg-color = darker-color2, highlight-color = darker-color3)
+  if visibility is true
+    display block
+    opacity 1
+    visibility visible
+  if visibility is false
+    display none
+    opacity 0
+    visibility hidden
+  transition opacity transition-speed linear
+  position relative
+  float left
+  margin 1.1em 0 0 1.8em
+  z-index 2
+  user-select none
+  cursor pointer
+  background-color bg-color
+  height 30px
+  width 30px
+  padding 0
+  z-index 0
+  html.notouch &:hover
+      background-color highlight-color
+  &:active,
+  &:focus
+      background-color highlight-color
+
+
+menubutton(visibility = true, bg-color = darker-color2, highlight-color = darker-color3)
+  if visibility is true
+    display block
+    opacity 1
+    visibility visible
+  if visibility is false
+    display none
+    opacity 0
+    visibility hidden
+  transition opacity transition-speed linear
+  position relative
+  float left
+  width 30px
+  height 18px
+  margin 1.1em 0 0 0.8em
+  z-index 2
+  user-select none
+  cursor pointer
+  border-top 6px solid bg-color
+  border-bottom 6px solid bg-color
+  html.notouch &:hover
+    border-top 6px solid highlight-color
+    border-bottom 6px solid highlight-color
+    &:before
+      background-color highlight-color
+  &:active,
+  &:focus
+    border-top 6px solid highlight-color
+    border-bottom 6px solid highlight-color
+    &:before
+      background-color highlight-color
+  &:before
+    content ''
+    display block
+    position absolute
+    top 50%
+    width 30px
+    height 6px
+    margin-top -3px
+    background-color bg-color
+
+scrollview(trackcolor = none, scrollcolor = darker-color2, borders = 0 0 7px 7px)
+  overflow-x hidden
+  overflow-y auto
+  -webkit-overflow-scrolling touch
+  &::-webkit-scrollbar
+    width 0.5em
+    margin 0
+    padding 0
+  &::-webkit-scrollbar-track
+    width 0.5em
+    margin 0
+    padding 0
+    background trackcolor
+  &::-webkit-scrollbar-thumb
+    background scrollcolor
+    border-radius borders
+    margin 0
+    padding 0
+    opacity 0
+
+listview(list-color = darker-color1, list-highlight-color = darker-color2,trackcolor = none, scrollcolor = darker-color2, borders = 0 0 7px 7px)
+  width 100%
+  height 95%
+  margin 0 auto
+  padding 0
+  border-width 0px 0px 0px 0px
+  border-style solid
+  border-color darken(list-color, 20%)
+  scrollview(trackcolor, scrollcolor, borders)
+  li
+    width (100% - 1px)
+    margin 0 0 0 2px
+    display block
+    border-width 0px 1px 1px 1px
+    border-style solid
+    border-color darken(list-color, 20%)
+    box-sizing border-box
+    &:first-child
+      border-width 1px 1px 1px 1px
+      border-style solid
+      border-color darken(list-color, 20%)
+      box-sizing border-box
+    &:last-child
+      margin-bottom (base-line-height * 5)
+    a
+      text-decoration none
+      width 100%
+      height 100%
+      padding 1em 0px 1em 0
+      display block
+      color lighter-color2
+      background-color list-color
+      html.notouch &:hover
+        background-color list-highlight-color
+      &:active
+        background-color list-highlight-color
+      span
+        display block
+        width 88%
+        margin 0 15% 0 5%
+
+modal()
+  display none
+  position fixed
+  top 64px
+  left 50%
+  z-index 16
+  width 66%
+  background linear-gradient(to bottom right, darker-color3, darker-color2)
+  box-shadow 0px 0px 7px darker-color1
+  color lighten(lighter-color3, 20%)
+  margin-left -35%
+  opacity 0
+  visibility hidden
+  transition opacity transition-speed linear
+  cursor pointer
+  border-radius 3px
+  border 1px solid darker-color2
+  &:before
+    content "\00d7"
+    width 20px
+    height 20px
+    margin 6px
+    float right
+    font-size 1.2em
+  .controls
+    display block
+    width 95%
+    margin 0 auto
+    padding 0
+
+show(time = 300ms)
+  opacity 1 !important
+  visibility visible !important
+
+.show
+  show()
+
+hide(time = 300ms)
+  opacity 0
+  visibility hidden
+
+.hide
+  hide()
+
+topbar()
+  small()
+  width 100%
+  height 60px
+  position fixed
+  top 0
+  left 0
+  background-color darker-color1
+  color lighter-color2
+  z-index 15
+  opacity(1.0)
+  border-width 0px 0px 1px 0px
+  border-style solid
+  border-color darken(darker-color1, 20%)
+  user-select none
+  .topbar-inner
+    grid(100%,100%)
+    height 100%
+    overflow hidden
+
+.topbar
+  topbar()
+
+topbarfix()
+  margin-top 60px
+  &:after
+    content ""
+    padding-bottom 60px
+
+carousel(items=2, speed=transition-speed)
+  grid(100%, (100% * items))
+  position fixed
+  top 0%
+  left 0%
+  transition left speed linear
+
+flyinmenu(direction, speed=transition-speed, width = 72%, height = 100%)
+  if direction is left
+    grid(width, width)
+    position fixed
+    left -100%
+    height 100%
+  if direction is right
+    grid(width, width)
+    position fixed
+    left (100 + width) %
+    height 100%
+  if direction is bottom
+    position fixed
+    box-style border-box
+    bottom (height * -1) %
+    left 50%
+    width width
+    height height
+    margin-left ((width/2) * -1) %
+  z-index 14 !important
+  transform translated3d(0,0,0)
+  transition all speed linear
+
+
+flyawaymenu(direction, speed = transition-speed, width = 72%)
+  grid(width, width)
+  position fixed
+  if direction is left
+    left ( 0 - width) %
+  if direction is right
+    left 100%
+  z-index 14 !important
+  height 100%
+  transform translated3d(0,0,0)
+  transition left speed linear
+
+debug = true unless debug is defined
+if debug is true
+  debug_display = block
+else
+  debug_display = none
+
+#flui-debug
+  display debug_display
+  position fixed
+  bottom 1%
+  left 1%
+  width 86%
+  height 50%
+  padding 1em
+  border-radius 3px
+  background-color white
+  border 2px solid #aaa
+  color black
+  z-index 1000
+  transform translate3d(0,0,0)
+  &:before
+    content 'Fluidity UI Debugger'
+    width 80%
+    font-size 1em
+    border-bottom 1px solid #aaa
+    color #aaa
+    text-align center
+
+#flui-debug-console
+  min-height 200px
+  width 90%
+  margin 1em auto
+  scrollview()
+
+#flui-debug-clear
+  position absolute
+  width auto
+  padding 4px
+  margin 0
+  height auto
+  text-align center
+  top 2%
+  right 2%
+  background-color #aaa
+  border-radius 2px
+  cursor pointer
+  &:hover
+    background-color black
+  &:before
+    content 'Clear'
+    color white
+    font-size 0.9em
+
+modalbuttons()
+  display block
+  float right
+  width 40%
+  margin 1em 5%
+
+#flui-modal
+  position fixed
+  display block
+  top 80px
+  width 50%
+  height auto
+  margin 0 23%
+  padding 2%
+  color white
+  background rgba(lighten(darker-color1,12%), 98%)
+  z-index 1000
+  border-radius 2px
+  opacity 0
+  visibility hidden
+  &:before
+    content "Confirm"
+    display block
+    width 100%
+    text-align center
+    height 30px
+    font-size 1.2em
+  #flui-modal-message
+    width 100%
+    margin 1em
+    text-align center
+  #flui-cancel
+    modalbuttons()
+    &:before
+      content "Cancel"
+  #flui-confirm
+    modalbuttons()
+    &:before
+      content "Ok"
