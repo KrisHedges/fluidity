@@ -1,46 +1,38 @@
 grid-width = 100% unless grid-width is defined
 grid-min-width = 960px unless grid-min-width is defined
-transition-speed = 300ms unless transition-speed is defined
 
-$grid
+grid(width = grid-width, min-width = grid-min-width)
   position relative
   margin 0 auto
   overflow hidden
-  transform translate3d(0,0,0)
-  transition left transition-speed linear
-
-grid(width = grid-width, min-width = grid-min-width)
-  @extends $grid
   width width
   min-width min-width
+
+grid-space(width)
+  display block
+  position relative
+  float left
+  width width
+  height 100%
+  margin 0
+  padding 0
+  box-sizing border-box
 
 section()
   display block
   position relative
   float left
   width 100%
-  height 100%
+  height auto
   margin 0
   padding 0
   clear both
+  &:after
+    content ''
+    display table
 
-header
-footer
 section
   section()
-
-$space
-  display block
-  position relative
-  float left
-  height 100%
-  margin 0
-  padding 0
-  box-sizing border-box
-
-grid-space(width)
-  @extends $space
-  width width
 
 center-space()
   float none

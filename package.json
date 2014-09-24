@@ -1,7 +1,7 @@
 {
   "name": "fluidity",
   "description": "A fluid semantic grid system and lightweight css framework for Stylus",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/InkSpeck/fluidity.git"
