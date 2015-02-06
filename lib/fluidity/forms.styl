@@ -1,255 +1,128 @@
-darrow = unquote("url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkFCRUI2NzA2NTE1MTFFMjlCRTlBRDc3RkJBQzJCRUMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkFCRUI2NzE2NTE1MTFFMjlCRTlBRDc3RkJBQzJCRUMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQTc2NTI0MzY0REMxMUUyOUJFOUFENzdGQkFDMkJFQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQTc2NTI0NDY0REMxMUUyOUJFOUFENzdGQkFDMkJFQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiL86IoAABWYSURBVHja7N3dddtI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')")
-
-cal = unquote("url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkFCRUI2NzQ2NTE1MTFFMjlCRTlBRDc3RkJBQzJCRUMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkFCRUI2NzU2NTE1MTFFMjlCRTlBRDc3RkJBQzJCRUMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQUJFQjY3MjY1MTUxMUUyOUJFOUFENzdGQkFDMkJFQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyQUJFQjY3MzY1MTUxMUUyOUJFOUFENzdGQkFDMkJFQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvwTZIkAAAzbSURBVHja7NrRVdtY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')")
-
-// --------------------------------------------------
+//
 // Forms
 // --------------------------------------------------
-// GENERAL STYLES
-// --------------
-// Make all forms have space below them
-// --------------------------------------------------
+// Restyle and baseline non-control form elements.
 form
-  grid(100%,100%)
-  margin 0 0 base-line-height
+  clearfix()
 
-fieldset
-  padding (base-font-size * 2) 0 0 0 !important
-  border 0
-  margin-bottom 1em
+  fieldset
+    padding (base-font-size * 2) 0 0 0 !important
+    border 0
+    margin-bottom 1em
 
-legend
-  display block
-  width 100%
-  height base-font-size * 2.4
-  padding 0
-  margin 0
-  font-size base-font-size * 1.2
-  line-height base-line-height * 2
-  border 0
-  border-bottom 1px solid lighter-color2
-
-label
-  line-height base-line-height
-  padding-top (base-line-height / 3)
-  padding-bottom (base-line-height / 3)
-  padding-right (base-line-height/2)
-  box-sizing border-box
-
-// Form controls
-// -------------------------
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-  appearance none
-  outline none
-  height base-line-height
-  padding 1em 0.5em
-  margin-bottom base-line-height
-  font-size base-font-size
-  line-height base-line-height
-  vertical-align middle
-  box-sizing border-box
-
-textarea
-  min-height base-line-height * 6
-
-input[type="color"]
-  background-color lighten(lighter-color3,30%)
-
-input[type="date"]
-input[type="datetime"]
-input[type="datetime-local"]
-  appearance none
-  outline none
-  position relative
-  background-color lighten(lighter-color3, 30%)
-  background-image cal
-  background-repeat no-repeat
-  background-size base-line-height
-  background-position 95% 45%
-  padding 0.4em 0.5em
-  border 1px solid lighter-color2
-  border-radius 3px
-  box-sizing border-box
-  color darker-color2
-  &::-webkit-inner-spin-button
-  &::-webkit-outer-spin-button
-    appearance none
-  &::-webkit-calendar-picker-indicator
+  legend
     display block
-    position absolute
-    top 0
-    left 0
     width 100%
-    height 100%
-    border 1px solid
-    background-color lighten(lighter-color3, 30%)
-    opacity 0
-  &:hover,
-  &:focus,
-  &:active
-    border 1px solid lighter-color2
-    box-shadow inset 0 0px 3px 0px lighten(lighter-color2,15%)
-    background-color lighten(lighter-color3, 15%)
-    border-radius 3px
-
-input[type="submit"],
-button
-  background-color lighten(lighter-color3, 30%)
-  margin base-line-height (base-line-height/2)
-  padding 0.5em 0.5em
-  border 1px solid lighter-color2
-  box-shadow inset 0 0px 0px rgba(0,0,0,0)
-  translate3d 0 0 0
-  transition border linear .2s, box-shadow linear .2s
-  border-radius 0px
-  color darker-color2
-  &:hover,
-  &:focus,
-  &:active
-    border 1px solid lighter-color2
-    box-shadow inset 0 0px 3px 0px lighten(lighter-color2,15%)
-    background-color lighten(lighter-color3, 15%)
-    border-radius 3px
-
-output
-  display block
-  margin 0
-  padding 0
-
-select
-  appearance none
-  outline none
-  background-color lighten(lighter-color3, 30%)
-  background-image darrow
-  background-repeat no-repeat
-  background-size (base-line-height/ 1.4)
-  background-position 95% 45%
-  padding 0.5em 0.5em
-  border 1px solid lighter-color2
-  box-shadow inset 0 0px 0px rgba(0,0,0,0)
-  translate3d 0 0 0
-  transition border linear .2s, box-shadow linear .2s
-  border-radius 3px
-  color darker-color2
-  option
-    appearance none
-    outline none
+    height base-font-size * 2.4
     padding 0
-    margin-left 0
-    margin-right 3em
-  &:hover,
-  &:focus,
-  &:active
-    border 1px solid lighter-color2
-    box-shadow inset 0 0px 3px 0px lighten(lighter-color2,15%)
-    background-color lighten(lighter-color3, 15%)
-    border-radius 3px
+    margin 0
+    font-size base-font-size * 1.2
+    line-height base-line-height * 2
+    border 0
+    border-bottom 1px solid lighter-color2
 
-// CHECKBOXES & RADIOS
-// -------------------
-input[type="radio"],
-input[type="checkbox"]
-  position relative
-  margin (base-line-height / 2.95) 1em (base-line-height / 3) 0
-  appearance none
-  outline none
-  padding 0.6em
-  background-color lighten(lighter-color3, 30%)
-  border 1px solid lighter-color2
-  translate3d 0 0 0
-  transition background-color linear .12s, box-shadow linear .12s, border linear .12s
-  transition-delay 0s
-  &:checked
+  label
+    line-height base-line-height
+    padding-top (base-line-height / 3)
+    padding-bottom (base-line-height / 3)
+    padding-right (base-line-height/2)
+    box-sizing border-box
+
+  // Form controls
+  // -------------------------
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"]
     appearance none
     outline none
-    background-color darker-color2
-    transform scale(0.9,0.9)
+    height base-line-height
+    padding 1em 0.5em
+    margin-bottom base-line-height
+    font-size base-font-size
+    line-height base-line-height
+    vertical-align middle
+    box-sizing border-box
+    border 1px solid base-color
 
-input[type="radio"]
-  border-radius 50%
-  &:checked
-    box-shadow inset 0px 0px 0px 0.2em lighten(lighter-color3, 30%)
+  textarea
+    min-height base-line-height * 6
 
-input[type="checkbox"]
-  border-radius 0px
-
-input[type="checkbox"]:checked
-  border-radius 3px
-  box-shadow inset 0px 0px 0px 0.2em lighten(lighter-color3, 30%)
-
-// Focus Transitions
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"]
-  appearance none
-  border 1px solid lighter-color2
-  box-shadow inset 0 0px 0px rgba(0,0,0,0)
-  translate3d 0 0 0
-  transition border linear .2s, box-shadow linear .2s
-  border-radius 0px
-  &:focus
-    border-color darken(lighter-color2, 3%)
-    border-radius 3px
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"]
+    appearance none
     outline none
-    box-shadow inset 0 1px 9px 1px lighter-color3
+    position relative
+    padding 0.4em 0.5em
+    border-radius 3px
+    box-sizing border-box
+    border 1px solid base-color
+    &::-webkit-inner-spin-button
+    &::-webkit-outer-spin-button
+      appearance none
+    &::-webkit-calendar-picker-indicator
+      display block
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      opacity 0
 
-// DISABLED STATE
-// --------------
-input[disabled],
-select[disabled],
-textarea[disabled],
-input[readonly],
-select[readonly],
-textarea[readonly]
-  cursor not-allowed
-  background-color lighter-color1
+  input[type="submit"],
+  button
+    margin base-line-height (base-line-height/2)
+    padding 0.8em 0.8em
+    box-shadow inset 0 0px 0px rgba(0,0,0,0)
+    border-radius 3px
+    border none
 
-// Explicitly reset the colors here
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"][readonly],
-input[type="checkbox"][readonly]
-  background-color transparent
-
-// HTML5 invalid states
-// Shares styles with the .control-group.error above
-input:focus:invalid,
-textarea:focus:invalid,
-select:focus:invalid
-  border-color #ee5f5b
-  &:focus
-    border-color darken(#ee5f5b, 10%)
-    box-shadow 0 0 6px lighten(#ee5f5b, 20%)
-
-// --------------------------------------------------
-// Variables Needed applied to form element
-// --------------------------------------------------
-// form-min-width Npx
-// layout horizontal,vertical,inline
-// labels top,left,right
-// --------------------------------------------------
-
-form(l = horizontal,w = 100%, a = left)
-  display block
-  width w
-  label
+  output
     display block
-    width 25%
-    float left
-    text-align right
+    margin 0
+    padding 0
+
+  select
+    appearance none
+    outline none
+    padding 0.5em 0.5em
+    border-radius 3px
+    option
+      appearance none
+      outline none
+      padding 0
+      margin-left 0
+      margin-right 3em
+
+  // CHECKBOXES & RADIOS
+  // -------------------
+  input[type="radio"],
+  input[type="checkbox"]
+    position relative
+    margin (base-line-height / 2.95) 1em (base-line-height / 3) 0
+    appearance none
+    outline none
+    padding 0.6em
+    &:checked
+      appearance none
+      outline none
+
+  input[type="radio"]
+    border-radius 50%
+
+  input[type="checkbox"]
+    border-radius 0px
+
+  input[type="checkbox"]:checked
+    border-radius 3px
+
+  // Focus Transitions
+  textarea,
   input[type="text"],
   input[type="password"],
   input[type="number"],
@@ -257,38 +130,37 @@ form(l = horizontal,w = 100%, a = left)
   input[type="url"],
   input[type="search"],
   input[type="tel"],
-    display block
-    width 55%
-    margin-right 20%
-    float left
-  textarea
-    display block
-    width 60%
-    margin-right 2%
-    float left
-  select
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"]
-    display block
-    width 55%
-    margin-right 20%
-    float left
-  input[type="radio"],
-  input[type="checkbox"]
-    width auto
-    float left
-  input[type="radio"] + label,
-  input[type="checkbox"] + label
-    float left
-    clear left
-    width 25%
-  input[type="submit"],
-  button
-    float right
-  fieldset input[type="submit"]:first-of-type,
-  fieldset button:first-of-type
-    margin-right 15% !important
+  input[type="color"]
+    appearance none
+    border-radius 3px
+    &:focus
+      outline none
+
+  // DISABLED STATE
+  // --------------
+  input[disabled],
+  select[disabled],
+  textarea[disabled],
+  input[readonly],
+  select[readonly],
+  textarea[readonly]
+    cursor not-allowed
+    background-color #ccc
+
+  // Explicitly reset the colors here
+  input[type="radio"][disabled],
+  input[type="checkbox"][disabled],
+  input[type="radio"][readonly],
+  input[type="checkbox"][readonly]
+    background-color transparent
+
+  // HTML5 invalid states
+  // Shares styles with the .control-group.error above
+  input:focus:invalid,
+  textarea:focus:invalid,
+  select:focus:invalid
+    border-color #ee5f5b
+    &:focus
+      border-color darken(#ee5f5b, 10%)
+      box-shadow 0 0 6px lighten(#ee5f5b, 20%)
+
