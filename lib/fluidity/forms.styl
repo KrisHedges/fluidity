@@ -5,162 +5,139 @@
 form
   clearfix()
 
-  fieldset
-    padding (base-font-size * 2) 0 0 0 !important
-    border 0
-    margin-bottom 1em
+fieldset
+  padding (base-font-size * 2) 0 0 0 !important
+  border 0
+  margin-bottom 1em
 
-  legend
-    display block
-    width 100%
-    height base-font-size * 2.4
-    padding 0
-    margin 0
-    font-size base-font-size * 1.2
-    line-height base-line-height * 2
-    border 0
-    border-bottom 1px solid lighter-color2
+legend
+  display block
+  width 100%
+  height base-font-size * 2.4
+  padding 0
+  margin 0
+  font-size base-font-size * 1.2
+  line-height base-line-height * 2
+  border 0
 
-  label
-    line-height base-line-height
-    padding-top (base-line-height / 3)
-    padding-bottom (base-line-height / 3)
-    padding-right (base-line-height/2)
-    box-sizing border-box
+label
+  line-height base-line-height
+  padding-top (base-line-height / 3)
+  padding-bottom (base-line-height / 3)
+  padding-right (base-line-height / 2)
+  box-sizing border-box
 
-  // Form controls
-  // -------------------------
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"]
+// Form controls
+// -------------------------
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+input[type="time"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"]
+  outline none
+  box-sizing border-box
+  margin 0.4em 0.5em
+  border 1px solid #ccc
+
+input[type="time"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"]
+  padding 0.2em 0.3em
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="number"]
+  padding 0.4em 0.5em
+
+textarea
+  outline none
+  border 1px solid #ccc
+  padding 0.4em 0.5em
+  margin 0.4em 0.5em
+  min-height base-line-height * 6
+
+input[type="number"]
+  width 9em
+
+input[type="submit"],
+button
+  outline none
+  margin 0.4em 0.5em
+  padding 0.7em 0.8em 0.6em 0.8em
+  border none
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus
+    outline none
+
+output
+  display block
+  margin 0
+  padding 0
+
+select
+  outline none
+  padding 0.5em 0.5em
+
+// CHECKBOXES & RADIOS
+// -------------------
+input[type="radio"],
+input[type="checkbox"]
+  position relative
+  margin (base-line-height / 2.95) 1em (base-line-height / 3) 0
+  appearance none
+  outline none
+  padding 0.6em
+  &:checked
     appearance none
     outline none
-    height base-line-height
-    padding 1em 0.5em
-    margin-bottom base-line-height
-    font-size base-font-size
-    line-height base-line-height
-    vertical-align middle
-    box-sizing border-box
-    border 1px solid base-color
 
-  textarea
-    min-height base-line-height * 6
+input[type="radio"]
+  border-radius 50%
 
-  input[type="date"],
-  input[type="datetime"],
-  input[type="datetime-local"]
-    appearance none
-    outline none
-    position relative
-    padding 0.4em 0.5em
-    border-radius 3px
-    box-sizing border-box
-    border 1px solid base-color
-    &::-webkit-inner-spin-button
-    &::-webkit-outer-spin-button
-      appearance none
-    &::-webkit-calendar-picker-indicator
-      display block
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 100%
-      opacity 0
+input[type="checkbox"]
+  border-radius 0px
 
-  input[type="submit"],
-  button
-    margin base-line-height (base-line-height/2)
-    padding 0.8em 0.8em
-    box-shadow inset 0 0px 0px rgba(0,0,0,0)
-    border-radius 3px
-    border none
+input[type="checkbox"]:checked
+  border-radius 3px
 
-  output
-    display block
-    margin 0
-    padding 0
+// DISABLED STATE
+// --------------
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly]
+  cursor not-allowed
+  background-color rgb(238,238,238)
 
-  select
-    appearance none
-    outline none
-    padding 0.5em 0.5em
-    border-radius 3px
-    option
-      appearance none
-      outline none
-      padding 0
-      margin-left 0
-      margin-right 3em
+// Explicitly reset the colors here
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][readonly],
+input[type="checkbox"][readonly]
+  background-color transparent
 
-  // CHECKBOXES & RADIOS
-  // -------------------
-  input[type="radio"],
-  input[type="checkbox"]
-    position relative
-    margin (base-line-height / 2.95) 1em (base-line-height / 3) 0
-    appearance none
-    outline none
-    padding 0.6em
-    &:checked
-      appearance none
-      outline none
-
-  input[type="radio"]
-    border-radius 50%
-
-  input[type="checkbox"]
-    border-radius 0px
-
-  input[type="checkbox"]:checked
-    border-radius 3px
-
-  // Focus Transitions
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"]
-    appearance none
-    border-radius 3px
-    &:focus
-      outline none
-
-  // DISABLED STATE
-  // --------------
-  input[disabled],
-  select[disabled],
-  textarea[disabled],
-  input[readonly],
-  select[readonly],
-  textarea[readonly]
-    cursor not-allowed
-    background-color #ccc
-
-  // Explicitly reset the colors here
-  input[type="radio"][disabled],
-  input[type="checkbox"][disabled],
-  input[type="radio"][readonly],
-  input[type="checkbox"][readonly]
-    background-color transparent
-
-  // HTML5 invalid states
-  // Shares styles with the .control-group.error above
-  input:focus:invalid,
-  textarea:focus:invalid,
-  select:focus:invalid
-    border-color #ee5f5b
-    &:focus
-      border-color darken(#ee5f5b, 10%)
-      box-shadow 0 0 6px lighten(#ee5f5b, 20%)
+// HTML5 invalid states
+// Shares styles with the .control-group.error above
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid
+  border-color #ee5f5b
+  &:focus
+    border-color darken(#ee5f5b, 10%)
+    box-shadow 0 0 6px lighten(#ee5f5b, 20%)
 
