@@ -8,7 +8,7 @@ stylus = require 'stylus'
 nodes = stylus.nodes
 utils = stylus.utils
 
-exports.version = '0.1.0'
+exports.version = '0.1.6'
 exports.path = __dirname
 plugin = ->
   return (style) ->
