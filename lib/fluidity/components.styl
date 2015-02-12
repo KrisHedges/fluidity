@@ -11,7 +11,7 @@ html.flui-preload body *
   transition all 0s linear !important
 
 //
-// Universal Components
+// Components
 // -----------------------
 
 slider(
@@ -211,30 +211,17 @@ listview(list-color = darker-color1, list-highlight-color = darker-color2,trackc
         width 88%
         margin 0 15% 0 5%
 
-modal()
+modal($width = 66%)
   display none
   position fixed
-  top 64px
+  top 3.0em
   left 50%
   z-index 16
-  width 66%
-  background linear-gradient(to bottom right, darker-color3, darker-color2)
-  box-shadow 0px 0px 7px darker-color1
-  color lighten(lighter-color3, 20%)
-  margin-left -35%
+  width $width
+  margin 0 0 0 (-1 * ($width/2))
   opacity 0
   visibility hidden
-  transition opacity transition-speed linear
-  cursor pointer
-  border-radius 3px
-  border 1px solid darker-color2
-  &:before
-    content "\00d7"
-    width 20px
-    height 20px
-    margin 6px
-    float right
-    font-size 1.2em
+  padding 1px
   .controls
     display block
     width 95%
