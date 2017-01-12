@@ -11,7 +11,7 @@ It's built using the awesome Stylesheet language Stylus and all the super powers
 
 Install ( Quickstart )
 =======
-___For Complete Documentation visit [FluidityCSS.com](http://www.fluiditycss.com/)___
+___For Complete Documentation visit [FluidityCSS.com](https://fluidity-css.herokuapp.com/)___
 
 Assumes you already have an up-to-date and working Node.js environment.
 
